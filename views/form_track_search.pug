@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .container-fluid
+    form(action='/tracks' method='post' class="form-horizontal")
+      .form-group
+        label(for='search' class="control-label col-sm-2") Type
+        .col-sm-2
+          select( name='searchType' class="form-control" id="search")
+            option( value='Name' selected="selected") Name
+            option( value='Genre') Genre
+      .form-group
+        label(for='chkFuzz' class="control-label  col-sm-2") Fuzzy?
+        .col-sm-2
+          select( name='isFuzzy' class="form-control")
+            option( value='yes' ) Yes
+            option( value='no' selected="selected") No
+      .form-group
+        label(class="control-label col-sm-2" for="InputSort") Sort by
+        .col-sm-4
+          select( name='sort_by' class="form-control")
+            option( value='name' ) Name
+            option( value='joindate') Join Date
+            option( value='popularity_total' selected='selected') Popular
+            option( value='popularity_month') Popular (Month)
+            option( value='popularity_week') Popular (Week)
+            option( value='buzzrate') Buzz Rate
+            option( value='downloads_week') Downloads Week
+            option( value='downloads_month') Downloads Month
+            option( value='downloads_total') Downloads Total
+            option( value='listens_week') Listens Week
+            option( value='listens_month') Listens Month
+            option( value='listens_total') Listens Total
+      .form-group
+        label(class="control-label col-sm-2" for="InputName") Name
+        .col-sm-4
+          input(type:'text' id="InputName" name='inputText' class="form-control" required=true)
+      .form-group
+        div(class="col-sm-offset-2 col-sm-5")
+          input(type="submit" class="btn btn-primary" value="Submit")

@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .container
+    div(class="album")
+      h2= album.name
+      img(src=album.image class="img-responsive")
+      h4
+        span by &nbsp;
+        span= album.artist_name
+      button(class="button")
+        a(href="/artist/" + album.artist_id )= "Show All From - " + album.artist_name
+  .container
+    if album.tracks
+      div(class="player well")
+        #info
+        section( id='audio')
+      table(class="tracks table table-striped table-hover")
+        thead
+          tr
+            th Name
+            th Duration
+            th
+        tfoot
+          tr
+            td.nav_prev
+            td.nav_next
+        tbody
+          each trk in album.tracks
+            tr(data-playing=trk.name data-audio=trk.audio data-artist-id=album.artist_id data-artist-name=album.artist_name)
+              td
+                a.html5(href=trk.audio )= trk.name
+              td= trk.duration
+              td.dl
+                button(class="button")
+                  a(href=trk.audiodownload class="glyphicon glyphicon-save") Save
+
+              td

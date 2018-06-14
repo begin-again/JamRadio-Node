@@ -1,0 +1,32 @@
+//- Artist Albums
+if header
+  if header.status === "success"
+    .container
+      if albums.length > 0
+        table(class="albums table table-striped table-hover table-condensed")
+          thead
+            tr
+              th Album
+              th Name
+              th Released
+              th
+          tbody
+            each album in albums
+              tr(data-album-id=album.id)
+                td
+                  img(src=album.image)
+                td(style="vertical-align: middle")= album.name
+                td(style="vertical-align: middle")= album.releasedate
+                td(style="vertical-align: middle")
+                  button(class="button")
+                    a(href=album.zip) Download
+      else
+        .alert
+          p No Albums Found
+
+  else
+    .alert
+      p= header.error_message
+else
+  .alert
+    p= msg

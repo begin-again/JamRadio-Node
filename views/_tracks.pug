@@ -1,0 +1,21 @@
+if tracks
+  each trk in tracks
+    tr(data-playing=trk.name data-audio=trk.audio data-artist-name=trk.artist_name data-artist-id=trk.artist_id)
+      td.row
+      td.artist
+        a(href="/artist/" + trk.artist_id)
+          span= trk.artist_name
+      td.album
+        a(href="/album/" + trk.album_id)
+          img(src=trk.album_image style="box-shadow: 2px 2px 2px #333")
+      td= trk.name
+      td= trk.duration
+      td.dl
+        button(class="button")
+          a(href=trk.audiodownload)
+            span(class="glyphicon glyphicon-save")
+      td(style='text-align: center')= trk.musicinfo.vocalinstrumental === 'vocal' ? 'V' : 'I'
+      td(style='text-align:center')= trk.musicinfo.lang
+      td= trk.musicinfo.tags.genres.join(', ')
+      td= trk.stats.rate_listened_total
+      td= trk.stats.rate_downloads_total

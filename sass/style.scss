@@ -1,0 +1,17 @@
+
+.player {
+  margin: 5px 0px;
+  #info p {
+    font-weight: bold;
+    span.track_name {
+      color: blue;
+    }
+    span.artist_name {
+      color: crimson;
+    }
+  }
+}
+
+td {
+  cursor: pointer;
+}

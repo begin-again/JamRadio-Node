@@ -1,0 +1,18 @@
+.container
+  nav(class="navbar navbar-default")
+    .container-fluid
+      .navbar-header
+        button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a(class="navbar-brand" href="#") JamRadio
+      div(id="navbar" class="navbar-collapse" aria-expanded="false" style="height: 1px;")
+        ul(class="nav navbar-nav")
+          li(id="artists")
+            a(href="/artists" target="_self") Artists
+          li(id="tracks")
+            a(href="/tracks" target="_self") Tracks
+          li(id="about" class="about")
+            a(href="https://github.com/begin-again/JamRadio-Node" target="_blank") About

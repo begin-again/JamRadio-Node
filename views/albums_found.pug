@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  if albums && albums.length > 0
+    table(class="table table-striped table-hover")
+      thead
+        tr
+          th(colspan=2 style='padding-left=30px') Album
+          th Artist
+          th
+      tbody
+        each album in albums
+          tr
+            td
+              a(href="/album/" + album.id)
+                img(src=album.image)
+            td(style="vertical-align: middle")
+              a(href="/album/" + album.id)= album.name
+            td(style="vertical-align: middle")
+              a(href="/artist/id/" + album.artist_id)= album.artist_name
+            td(style="vertical-align: middle")
+              button(class="button")
+                a(href=album.zip) DL
+

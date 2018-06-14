@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  if tracks
+    .container
+      div(class="player")
+        #info
+        section(id="audio")
+    .container
+      if tracks.length > 0
+        table(class="tracks table table-striped table-hover table-condensed")
+          thead
+            tr
+              td
+              th Artist
+              th Album
+              th Name
+              th Duration
+              th
+              th(style='text-align:center') Type
+              th(style='text-align:center') Lang
+              th Genre
+              th Plays
+              th Downloads
+          tbody
+              include _tracks
+      else
+       p.alert No Tracks Found
+  else
+    .container
+      p.alert= msg

@@ -1,0 +1,25 @@
+//- Artist Info
+if header
+  if header.status === "success"
+    .container
+      .col-sm-3
+        if artistInfo.website.length > 0
+          a(href=artistInfo.website target="_blank")
+            img(src=artistInfo.image)
+        else
+          img(src=artistInfo.image)
+      .col-sm-6
+        p= artistInfo.name
+        p tags
+          each tag in artistInfo.musicinfo.tags
+            span= tag
+        p Description
+          each d in artistInfo.musicinfo.description
+            span= d
+
+  else
+    .alert
+      p= header.error_message
+else
+  .alert
+    p= msg

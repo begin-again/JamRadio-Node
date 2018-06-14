@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container-fluid
+    form(action='/artists' method='post' class="form-horizontal")
+      .form-group
+        label(class="control-label col-sm-2" for="InputSort") Sort by
+        .col-sm-2
+          select( id="InputSort" class="form-control" name="SortType")
+            option( value='name' ) Name
+            option( value='joindate') Join Date
+            option( value='popularity_total' selected='selected') Popular
+            option( value='popularity_month') Popular (Month)
+            option( value='popularity_week') Popular (Week)
+      .form-group
+        label(class="control-label col-sm-2" for="InputName") Artist Name
+        .col-sm-4
+          input(type="text" class="form-control" id="InputName" name="ArtistName" placeholder="Artist" maxLength="20" required)
+      .form-group
+        div(class="col-sm-offset-3 col-sm-9")
+          input(type="submit" class="btn btn-primary" value="Submit")

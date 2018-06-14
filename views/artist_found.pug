@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .container
+  if header
+    if header.status !== "failed"
+      if artists && artists.length > 0
+        .container
+          table(id="artists-found" class="table table-striped table-hover")
+            thead
+              tr
+                th
+                th Artist
+                th Joined
+                th
+            tbody
+              each artist in artists
+                tr(data-artist-id=artist.id)
+                  td
+                    a(href="/artist/" + artist.id)
+                      if artist.image.length > 0
+                        img(src=artist.image width=100 height=100)
+                      else
+                        span ID:
+                        span= artist.id
+                  td(style="vertical-align: middle")
+                    a(href="/artist/" + artist.id)= artist.name
+                  td(style="vertical-align: middle")= artist.joindate
+                  td(style='text-align=center;vertical-align: middle')
+                    if artist.website.length > 0
+                      button(class="button")
+                        a(href=artist.website) Website
+      else
+        .alert
+          p No Artists Found!
+    else
+      .alert
+          p= header.error_message
+  else
+    .alert
+      p= msg

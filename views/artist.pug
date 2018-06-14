@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .container
+    if header
+      if header.status === "success"
+
+        if artist !== null
+          .container
+            a(href=artist.website class="pull-left" target="_blank" style="border: 1px solid #333")
+              img(src=artist.image)
+            h2= artist.name
+          .container
+            if artist.albums.length > 0
+              table(class="albums table table-striped table-hover table-condensed")
+                thead
+                  tr
+                    th Album
+                    th Name
+                    th Released
+                tbody
+                  each album in artist.albums
+                    tr(data-album-id=album.id data-artist-name=artist.name data-artist-id=artist.id)
+                      td
+                        img(src=album.image)
+                      td(style="vertical-align: middle")= album.name
+                      td(style="vertical-align: middle")= album.releasedate
+            else
+              .alert
+                p No Albums found for this artist
+        else
+          .alert
+            p No Artist Found
+      else
+        .alert
+          p= header.error_message
+    else
+      .alert
+        p= msg
+
