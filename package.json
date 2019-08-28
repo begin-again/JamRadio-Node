@@ -27,7 +27,7 @@
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "pug": "~2.0.0-beta6",
     "q": "^1.4.1",
     "remove": "^0.1.5",
