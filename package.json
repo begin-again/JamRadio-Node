@@ -1,9 +1,12 @@
 {
   "name": "jamradio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "description": "music discovery service utilizing the jamendo.com api",
   "main": "app.js",
+  "engines": {
+      "yarn": "^1.22.4"
+  },
   "scripts": {
     "start": "nodemon ./bin/www",
     "test": "mocha test/"
@@ -28,14 +31,14 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "morgan": "^1.9.1",
-    "pug": "~2.0.0-beta6",
+    "pug": "^2.0.0",
     "q": "^1.4.1",
     "remove": "^0.1.5",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "@types/express": "^4.0.35",
-    "@types/node": "^10.3.3",
+    "@types/node": "^14.14.0",
     "@types/q": "^1.0.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
